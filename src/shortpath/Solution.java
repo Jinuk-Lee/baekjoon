@@ -36,7 +36,7 @@ public class Solution {
 
 
         for (int i = 0; i < nodecount; i++) {
-            graph.add(new Edge<>());    //노드의 개수만큼 노드 생성
+            graph.add(new Edge<>(i));    //노드의 개수만큼 노드 생성
         }
 
         for (int i = 0; i < edgecount; i++) {
@@ -51,7 +51,7 @@ public class Solution {
             //graph.get(node2).setEdge(node1,weight);
         }
         for (int i = 0; i < graph.size(); i++) {
-            System.out.println("정점" +);
+            System.out.println();
         }
     }
     public static void createNode ( int N){
