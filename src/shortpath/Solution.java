@@ -60,7 +60,7 @@ public class Solution {
         }
     }
     public static void createEdge(int node1,int node2,int weight) {
-        graph.get(node1).setEdge(node2,weight);
+        graph.get(node1).setEdge(node2,weight); //간선의 정보를 통해 간선 생성
         //graph.get(node2).setEdge(node1,weight); 양방향일때 반대 간선
 
     }
