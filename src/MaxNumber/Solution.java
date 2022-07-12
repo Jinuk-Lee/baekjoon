@@ -6,7 +6,7 @@ import java.util.*;
 
 class Solution {
     static int listsize;
-    static int[] number;
+    //static int[] number;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,13 +16,12 @@ class Solution {
         String[] list = num.split(",");
 
         listsize = list.length;  //입력받은 숫자 개수
-
-        number = new int[listsize]; //개수만큼 배열 선언
-
-        for (int i = 0; i < listsize; i ++) {
-           number[i] = Integer.parseInt(list[i]);//string -> int
-
-        }
+//        number = new int[listsize]; //개수만큼 배열 선언
+//
+//        for (int i = 0; i < listsize; i ++) {
+//           number[i] = Integer.parseInt(list[i]);//string -> int
+//
+//        }
 
         Arrays.sort(list, new Comparator<String>() {
             @Override
