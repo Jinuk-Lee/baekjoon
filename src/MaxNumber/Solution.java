@@ -2,13 +2,16 @@ package MaxNumber;
 
 import java.util.*;
 
+
+
 class Solution {
-    static int MaxNum;
     static int listsize;
     static int[] number;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        String answer = "";
         String num = sc.next();
         String[] list = num.split(",");
 
@@ -18,22 +21,26 @@ class Solution {
 
         for (int i = 0; i < listsize; i ++) {
            number[i] = Integer.parseInt(list[i]);//string -> int
-            System.out.println(number[i]);
-            //System.out.println(Arrays.toString(list));
-            //[3,30,34,5,9]
+
         }
-            System.out.println(Arrays.toString(list)); //[숫자]
+
+        Arrays.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return (o2+o1).compareTo(o1+o2);
+            }
+        });
+
+        for(int i =0;i<listsize;i++){
+           // System.out.println(list[i]);
+            answer += list[i];
+        }
+        System.out.println(answer);
 
 
-        //System.out.println(list[1]+list[2]); //102
 
-
-       // solution();
     }
 
-//    public String solution(int[] numbers) {
-//        String answer = "";
-//
-//    }
+
 
 }
