@@ -2,19 +2,16 @@ package shortpath;
 
 import java.util.*;
 
-class Edge<W, V> {
+class Edge<W, V>  {
     private W weight;
     private V v;
-
     public Edge(V i) {
     }
-
     public void setEdge(W weight, V v) {
         this.weight = weight;
         this.v = v;
     }
 }
-
 public class Solution {
     private static int edgecount;  //간선의 개수
     private static int nodecount;   //노드의 개수
@@ -34,21 +31,13 @@ public class Solution {
         createNode(nodecount);
 
 
-
-        for (int i = 0; i < nodecount; i++) {
-            graph.add(new Edge<>(i));    //노드의 개수만큼 노드 생성
-        }
-
         for (int i = 0; i < edgecount; i++) {
             int node1 = sc.nextInt(); //시작 노드
             int node2 = sc.nextInt(); //종료 노드
             weight = sc.nextInt();  //해당 노드 가중치 설정
 
-
             createEdge(node1,node2,weight);
 
-            //graph.get(node1).setEdge(node2, weight); //단방향 간선
-            //graph.get(node2).setEdge(node1,weight);
         }
         for (int i = 0; i < graph.size(); i++) {
             System.out.println();
