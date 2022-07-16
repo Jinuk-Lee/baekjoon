@@ -1,54 +1,77 @@
-package shortpath;
+package shortestPath.secondAttempt;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
-class Main {
+public class Main {
     static ArrayList<Node>[] list;
-    private static int v;
-    private static int e;
+    private static int vCount; //정점 개수
+    private static int eCount; //간선 개수
     private static int start;
     private static int[] distance;
     private static int INF = Integer.MAX_VALUE;
+    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        v = sc.nextInt(); //정점개수
-        e = sc.nextInt(); //간선개수
-        start = sc.nextInt(); //시작정점
-        list = new ArrayList[v + 1]; //정점 인접리스트
-        distance = new int[v + 1]; //시작점과 다른 정점간의 최단경로
-        for (int i = 1; i <= v; i++) {
+    public static void main(String[] args) throws IOException {
+        //System.out.println("정점의 개수와 간선의 개수를 입력");
+        String s = br.readLine();
+
+        StringTokenizer st1 = new StringTokenizer(s);
+
+        vCount = Integer.parseInt(st1.nextToken());
+        eCount = Integer.parseInt(st1.nextToken());
+
+//        System.out.println("시작 노드를 입력");
+        start = Integer.parseInt(br.readLine());
+
+        list = new ArrayList[vCount + 1]; //정점 인접 리스트
+        distance = new int[vCount + 1]; //시작점과 다른 정점간의 최단경로
+
+        for (int i = 1; i <= vCount; i++)
             list[i] = new ArrayList<>();
-        }
+
         //초기화
         Arrays.fill(distance, INF);
+
         distance[start] = 0;
-        for (int i = 0; i < e; i++) {
-            int u = sc.nextInt(); //출발
-            int v = sc.nextInt(); //도착지
-            int w = sc.nextInt(); //가중치
+        for (int i = 0; i < eCount; i++) {
+            String str = br.readLine();
+            StringTokenizer st2 = new StringTokenizer(str);
+
+            int u = Integer.parseInt(st2.nextToken()); //출발
+            int v = Integer.parseInt(st2.nextToken()); //도착
+            int w = Integer.parseInt(st2.nextToken()); //가중치
+
             list[u].add(new Node(v, w));
         }
+
         dijkstra();
-        for (int i = 1; i <= v; i++) {
+
+        for (int i = 1; i <= vCount; i++) {
             if (distance[i] == INF) {
                 System.out.println("INF");
             } else {
                 System.out.println(distance[i]);
             }
         }
+
+
     }
 
     private static void dijkstra() {
         PriorityQueue<Node> queue = new PriorityQueue<>();
         queue.add(new Node(start, 0));
+
         while (!queue.isEmpty()) {
             Node node = queue.poll();
             int vertex = node.vertex;
             int weight = node.weight;
+
             if (distance[vertex] < weight) { //지금께 더 가중치가 크면 갱신할 필요가 없다.
                 continue;
             }
@@ -63,11 +86,11 @@ class Main {
         }
     }
 
-    private static class Node implements Comparable<Node> { //우선순위큐로 성능개선(안하면 시간초과뜸)
+    private static class Node implements Comparable<Node> { //시간 단축으로 성능 개선
         int vertex;
         int weight;
 
-        public Node(int vertex, int weight) {
+        Node(int vertex, int weight) {
             this.vertex = vertex;
             this.weight = weight;
         }
