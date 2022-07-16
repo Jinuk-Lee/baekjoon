@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Solution2 {
     static ArrayList<Node>[] list;
     private static int vCount; //정점 개수
     private static int eCount; //간선 개수
