@@ -17,7 +17,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        
+
         //정점의 개수v와 간선의 개수e를 입력
         vCount = Integer.parseInt(br.readLine());
         eCount = Integer.parseInt(br.readLine());
