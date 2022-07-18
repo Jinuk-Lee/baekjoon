@@ -7,9 +7,9 @@ class Edge<W, V>  {
     private V v;
     public Edge(V i) {
     }
-    public void setEdge(W weight, V v) {
-        this.weight = weight;
+    public void setEdge(V v,W weight) {
         this.v = v;
+        this.weight = weight;
     }
 }
 public class Solution {
