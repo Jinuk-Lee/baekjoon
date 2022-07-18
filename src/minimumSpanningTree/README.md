@@ -1,10 +1,8 @@
-# networkConnect 1922번 문제
+## 최소 스패닝 트리 #1197
 ### [문제 링크](https://www.acmicpc.net/problem/1197)<br>
-### [코드 링크](https://github.com/Jinuk-Lee/baekjoon/tree/main/src/networkConnect)
+### [코드 링크](https://github.com/Jinuk-Lee/baekjoon/blob/main/src/minimumSpanningTree/Main.java)
 
 ---
-
-## 최소 스패닝 트리 #1197
 
 ### 문제
 그래프가 주어졌을 때, 그 그래프의 최소 스패닝 트리를 구하는 프로그램을 작성하시오.
