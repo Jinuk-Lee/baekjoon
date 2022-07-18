@@ -1,4 +1,4 @@
-package networkConnect;
+package networkConnect.secondTry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
