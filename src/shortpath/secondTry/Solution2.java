@@ -1,4 +1,4 @@
-package shortestPath.secondAttempt;
+package shortpath.secondTry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class Solution2 {
         //초기화
         Arrays.fill(distance, INF);
 
-        distance[start] = 0;
+        distance[start] = 0; //시작 노드는 자신까지 최단경로는 0
         for (int i = 0; i < eCount; i++) {
             String str = br.readLine();
             StringTokenizer st2 = new StringTokenizer(str);
@@ -65,13 +65,11 @@ public class Solution2 {
 
     private static void dijkstra() {
         PriorityQueue<Node> queue = new PriorityQueue<>();
-        queue.add(new Node(start, 0));
-
+        queue.add(new Node(start, 0));  //1
         while (!queue.isEmpty()) {
             Node node = queue.poll();
             int vertex = node.vertex;
             int weight = node.weight;
-
             if (distance[vertex] < weight) { //지금께 더 가중치가 크면 갱신할 필요가 없다.
                 continue;
             }
