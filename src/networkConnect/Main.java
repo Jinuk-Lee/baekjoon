@@ -17,14 +17,17 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        //정점의 개수v와 간선의 개수e를 입력
         vCount = Integer.parseInt(br.readLine());
         eCount = Integer.parseInt(br.readLine());
 
+        //부모노드를 자기 자신으로 초기화
         parent = new int[vCount + 1];
         for (int i = 1; i <= vCount; i++) {
-            parent[i] = i; // //부모테이블은 자기 자신으로 초기화
+            parent[i] = i;
         }
 
+        //간선의 정보를 바로 우선순위큐에 추가
         for (int i = 0; i < eCount; i++) {
             String s = br.readLine();
             StringTokenizer st1 = new StringTokenizer(s);
@@ -35,46 +38,45 @@ public class Main {
 
             q.add(new Edge(from, to, weight));
         }
-
-        while (!(madeCount == vCount - 1)) { //
+            kruscal();
+    }
+    private static void kruscal(){
+        while (!(madeCount == vCount - 1)) { //노드개수 -1 까지 생성하는 조건
+            //우선순위 큐로 가중치로 오름차순 정렬된 간선을 꺼냄
             Edge edge = q.poll();
 
             int from = edge.from;
             int to = edge.to;
             int weight = edge.weight;
 
-            if (find(from) == find(to)) { //같으면 무시하고 다음 절차 수행
-                continue;
-            } else { //두 노드의 부모노드가 다르면 사이클이 발생하지 않으므로  union수행 후 간선 누적
+            //find()연산으로 찾은 양쪽 부모가 다르면 가중치 추가
+            if (find(from) != find(to)) {
                 union(from, to);
                 totalCost += weight;
                 madeCount++;
-                System.out.println(totalCost);
             }
         }
-//        System.out.println(totalCost);
+        System.out.println(totalCost);
     }
-    private static void union(int from, int to) {  //더 적은 노드로 부모 노드를 합치는
-        int fromParent = find(from);
-        int toParent = find(to);
-        if (fromParent < toParent) {
-            parent[to] = fromParent;
+    private static void union(int a, int b) {  //양쪽 부모중 낮은 부모를 따라감
+        a = find(a);
+        b = find(b);
+        if (a < b) {        //부모 번호를 비교
+            parent[b] = a;
         } else {
-            parent[from] = toParent;
+            parent[a] = b;
         }
     }
     private static int find(int vertex) {  //부모노드를 찾는 매서드
-        if (parent[vertex] != vertex) {
+        if (parent[vertex] != vertex)
             parent[vertex] = find(parent[vertex]);
-        }
         return parent[vertex];
     }
 
     private static class Edge implements Comparable<Edge> {
-        private int from;
-        private int to;
-        private int weight;
-
+        private int from; //양쪽 노드 번호
+        private int to;   
+        private int weight; //해당 간선의 가중치
 
         Edge(final int from, final int to, final int weight) {
             this.from = from;
