@@ -1,4 +1,4 @@
-package networkConnect.secondTry;
+package networkconnect.secondTry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,14 +7,13 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Main {
-    private static int vCount;
-    private static int eCount;
-    private static int madeCount = 0;
-    private static int[] parent; //부모테이블 생성
-    private static int totalCost = 0;
+    private static int vCount;  //정점 개수
+    private static int eCount;  //간선 개수
+    private static int madeCount = 0;   //생성된 간선 개수
+    private static int[] parent; //부모번호 배열 생성
+    private static int totalCost = 0;   //최소 신장 트리 집합들의 가중치의 합
     private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static PriorityQueue<Edge> q = new PriorityQueue<>();
-
     public static void main(String[] args) throws IOException {
 
 
@@ -39,9 +38,9 @@ public class Main {
 
             q.add(new Edge(from, to, weight));
         }
-            kruscal();
+            kruskal();
     }
-    private static void kruscal(){
+    private static void kruskal(){
         while (!(madeCount == vCount - 1)) { //노드개수 -1 까지 생성하는 조건
             //우선순위 큐로 가중치로 오름차순 정렬된 간선을 꺼냄
             Edge edge = q.poll();
