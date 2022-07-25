@@ -19,6 +19,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //System.out.println("정점의 개수와 간선의 개수를 입력");
+
         String s = br.readLine();
 
         StringTokenizer st1 = new StringTokenizer(s);
