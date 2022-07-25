@@ -15,7 +15,7 @@ class Edge<W, V> {
     }
 }
 
-public class Solution {
+public class Main {
     private static int edgecount;  //간선의 개수
     private static int nodecount;   //노드의 개수
     private static int startnode; //시작 정점
