@@ -1,4 +1,4 @@
-package minimumSpanningTree;
+package minimumspanningtree;
 
 import java.io.BufferedReader;
 import java.io.IOException;
