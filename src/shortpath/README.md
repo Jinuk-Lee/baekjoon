@@ -1,7 +1,6 @@
-# 최단 경로(그래프) #1753
+## 최단 경로(그래프) #1753
 
-[문제 링크](https://www.acmicpc.net/problem/1753)
-
+[문제 링크](https://www.acmicpc.net/problem/1753)<br>
 [개인 노션 링크](https://jinuk.notion.site/1753-3c0e9c835442453aa8ddc506d45e9c18)
 
 #### 문제 설명
