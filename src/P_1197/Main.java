@@ -1,4 +1,4 @@
-package minimumspanningtree;
+package P_1197;
 
 import java.io.BufferedReader;
 import java.io.IOException;
