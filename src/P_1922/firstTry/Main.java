@@ -1,4 +1,4 @@
-package networkconnect.firstTry;
+package P_1922.firstTry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
