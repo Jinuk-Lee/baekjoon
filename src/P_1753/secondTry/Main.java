@@ -1,4 +1,4 @@
-package shortpath.secondTry;
+package P_1753.secondTry;
 
 import java.io.BufferedReader;
 import java.io.IOException;

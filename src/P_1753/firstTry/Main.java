@@ -1,4 +1,4 @@
-package shortpath.firstTry;
+package P_1753.firstTry;
 
 import java.util.*;
 
